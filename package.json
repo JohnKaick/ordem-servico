@@ -1,0 +1,29 @@
+{
+  "name": "ordem-servico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnKaick/ordem-servico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnKaick/ordem-servico/issues"
+  },
+  "homepage": "https://github.com/JohnKaick/ordem-servico#readme",
+  "dependencies": {
+    "bookshelf": "^0.10.3",
+    "hapi": "^16.4.3",
+    "hapi-boom-decorators": "^3.0.0",
+    "hapi-routes": "^3.0.0",
+    "inert": "^4.2.0",
+    "knex": "^0.13.0",
+    "mysql": "^2.13.0"
+  }
+}
