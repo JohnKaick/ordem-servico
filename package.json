@@ -21,7 +21,7 @@
     "bookshelf": "^0.10.3",
     "hapi": "^16.4.3",
     "hapi-boom-decorators": "^3.0.0",
-    "hapi-routes": "^3.0.0",
+    "hapi-router": "^3.5.0",
     "inert": "^4.2.0",
     "knex": "^0.13.0",
     "mysql": "^2.13.0"

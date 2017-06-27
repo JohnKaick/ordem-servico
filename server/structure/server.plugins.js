@@ -5,5 +5,5 @@ const routesOptions = {
 module.exports = [
     { register: require('inert') },
     { register: require('hapi-boom-decorators') },
-    { register: require('hapi-routes'), options: routesOptions }
+    { register: require('hapi-router'), options: routesOptions }
 ]

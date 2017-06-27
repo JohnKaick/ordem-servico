@@ -2,7 +2,7 @@ const handlers = require('./handlers.js')
 
 module.exports = [
     {
-        path: '/ordem-servico/chamado',
+        path: '/ordem-servico/usuario',
         method: 'GET',
         handler: handlers.getMany,
         config: {
@@ -10,15 +10,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/usuario/{usuario_sid}',
-        method: 'GET',
-        handler: handlers.getManyUsuario,
-        config: {
-            auth: false
-        }
-    },
-    {
-        path: '/ordem-servico/chamado/{sid}',
+        path: '/ordem-servico/usuario/{sid}',
         method: 'GET',
         handler: handlers.getOne,
         config: {
@@ -26,7 +18,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/{usuario_sid}',
+        path: '/ordem-servico/usuario',
         method: 'PUT',
         handler: handlers.create,
         config: {
@@ -34,7 +26,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/{sid}',
+        path: '/ordem-servico/usuario/{sid}',
         method: 'POST',
         handler: handlers.update,
         config: {
@@ -42,7 +34,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/{sid}',
+        path: '/ordem-servico/usuario/{sid}',
         method: 'DELETE',
         handler: handlers.destroy,
         config: {

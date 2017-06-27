@@ -7,17 +7,9 @@ exports.up = function (knex, Promise) {
             table.string('sobrenome', 255)
             table.string('exibicao', 255)
             table.string('email', 255)
+            table.string('password_hash', 400)
             table.dateTime('created_at')
             table.dateTime('updated_at')
-        }),
-        knex.schema.createTableIfNotExists('conta', function (table) {
-            table.increments('id').primary()
-            table.string('usuario_id').references('id').inTable('usuario')
-            table.string('login', 255).notNullable()
-            table.string('password_hash', 36).notNullable()
-            table.boolean('email_verificado')
-            table.boolean('bloqueado')
-            table.boolean('online')
         }),
         knex.schema.createTableIfNotExists('role', function (table) {
             table.increments('id').primary()
@@ -78,7 +70,6 @@ exports.down = function (knex, Promise) {
         knex.schema.dropTableIfExists('acompanhamento'),
         knex.schema.dropTableIfExists('chamado'),
         knex.schema.dropTableIfExists('role'),
-        knex.schema.dropTableIfExists('conta'),
         knex.schema.dropTableIfExists('usuario'),
     ])
 };
