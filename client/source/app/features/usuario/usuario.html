@@ -1,24 +1,45 @@
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">Usuarios</div>
+<ui-menu></ui-menu>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>E-mail</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-actions form-inline">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <input type="text" ng-model="filtro" class="form-control" placeholder="Filtrar usuarios...">
+                    <div class="input-group-btn">
+                        <a class="btn btn-primary" href="#">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Usuarios </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Exibição</th>
+                            <th>E-mail</th>
+                            <th>Perfil</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>joao</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

@@ -4,16 +4,23 @@
 <head>
     <title>Ordem de serviço</title>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body ng-app="app">
-    <div ng-view></div>
+    <ng-view></ng-view>
     <!-- Dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <!-- Aplication angular -->
     <script src="app/app.js"></script>
+    <!-- Menu -->
+    <script src="app/features/menu/menu.directive.js"></script>
+    <!-- Chamado -->
+    <script src="app/features/chamado/chamado.controller.js"></script>
+    <!-- Usuario -->
+    <script src="app/features/usuario/usuario.controller.js"></script>
 </body>
 
 </html>
