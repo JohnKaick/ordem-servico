@@ -9,25 +9,28 @@
                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
                     <input type="text" ng-model="filtro" class="form-control" placeholder="Filtrar usuarios...">
                     <div class="input-group-btn">
-                        <a class="btn btn-primary" href="#">Cadastrar</a>
+                        <a class="btn btn-primary" ng-click="cadastrar()">Cadastrar</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </br>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Usuarios </div>
 
+    </br>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">Chamados</div>
+
+        <div class="row">
+            <div class="col-md-12">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Exibição</th>
                             <th>E-mail</th>
                             <th>Perfil</th>
-                            <th>Ações</th>
+                            <th>Editar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,11 +38,17 @@
                             <td>joao</td>
                             <td>Column content</td>
                             <td>Column content</td>
-                            <td>Column content</td>
+                            <td>
+                                <button class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
     </div>
+
 </div>

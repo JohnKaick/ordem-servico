@@ -1,16 +1,33 @@
 <ui-menu></ui-menu>
 
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading"> Chamados </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-actions form-inline">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <input type="text" ng-model="filtro" class="form-control" placeholder="Filtrar chamados...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </br>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">Chamados</div>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>E-mail</th>
-                    <th>Editar</th>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Criticidade</th>
+                    <th>Status</th>
+                    <th>Data de abertura</th>
+                    <th>Detalhes</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,8 +36,16 @@
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
+                    <td>Column content</td>
+                    <td>
+                        <button class="btn btn-default btn-sm">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
+
     </div>
+
 </div>
