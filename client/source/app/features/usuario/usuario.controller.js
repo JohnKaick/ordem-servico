@@ -7,9 +7,9 @@
 
     function usuarioCtrl($scope, $uibModal, usuarioAPI) {
 
-        $scope.carregaLista = function () {
-            usuarioAPI.obterLista().then(function (result) {
-                $scope.listas = result.data
+        $scope.load = function () {
+            usuarioAPI.getAll().then(function (result) {
+                $scope.lista = result.data
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
             })
@@ -17,12 +17,14 @@
 
         $scope.cadastrar = function () {
             $uibModal.open({
-                templateUrl: '/features/usuario/usuario.cadastro.html',
-                controller: 'usuarioCtrl',
+                templateUrl: 'app/features/usuario/usuario.cadastro.html',
+                controller: 'usuarioCadastroCtrl',
             }).result.then(function () {
-                $scope.carregaLista()
+                $scope.load()
             })
         }
+
+        $scope.load()
     }
 
 }());

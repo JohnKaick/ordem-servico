@@ -48,21 +48,11 @@
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label>Repita a senha</label>
-                    <input class="form-control" type="text" ng-model="cadastro.repeat_password">
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group">
                     <label>Perfil</label>
                     <select class="form-control" ng-model="cadastro.chave">
                     <option value="admin">Admin</option>
                     <option value="tecnico">Tecnico</option>
                     <option value="usuario">Usuário</option>
-                    <option value="web">Aplicações Web</option>
                 </select>
                 </div>
             </div>
@@ -71,8 +61,6 @@
 </div>
 
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="salvar(cadastro)">
-            <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar
-        </button>
+    <button type="button" class="btn btn-primary" ng-click="salvar(cadastro)">Salvar</button>
     <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
 </div>

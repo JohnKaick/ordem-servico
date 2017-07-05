@@ -21,10 +21,7 @@ module.exports.getOne = function (request, reply) {
 }
 
 module.exports.create = function (request, reply) {
-    let md = request.payload
-    md.created_at = new Date()
-
-    return ctrl.create(md).then((model) => {
+    return ctrl.create(request.payload).then((model) => {
         return reply(model)
     }).catch((err) => {
         return errHandler(request, reply, err)
