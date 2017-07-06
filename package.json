@@ -19,11 +19,15 @@
   "homepage": "https://github.com/JohnKaick/ordem-servico#readme",
   "dependencies": {
     "bookshelf": "^0.10.3",
+    "bookshelf-cascade-delete": "^2.0.1",
+    "dotenv": "^4.0.0",
     "hapi": "^16.4.3",
     "hapi-boom-decorators": "^3.0.0",
     "hapi-router": "^3.5.0",
     "inert": "^4.2.0",
     "knex": "^0.13.0",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "password-hash": "^1.2.2",
+    "shortid": "^2.2.8"
   }
 }

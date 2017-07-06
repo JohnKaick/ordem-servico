@@ -1,5 +1,7 @@
 const server = require('./server')
 
+require('dotenv').config()
+
 server.start((err) => {
     if (err) {
         console.error('Server error: ', err)

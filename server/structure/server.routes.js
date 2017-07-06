@@ -1,5 +1,5 @@
 module.exports = function (server) {
-    
+
     server.route({
         method: 'GET',
         path: '/{param*}',
@@ -15,5 +15,5 @@ module.exports = function (server) {
         }
     })
 
-
+    server.route(require('./../src/usuario/routes'))
 }

@@ -33,12 +33,4 @@ module.exports = [
             auth: false
         }
     },
-    {
-        path: '/ordem-servico/usuario/{sid}',
-        method: 'DELETE',
-        handler: handlers.destroy,
-        config: {
-            auth: false
-        }
-    }
 ]
