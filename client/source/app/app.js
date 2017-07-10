@@ -7,15 +7,18 @@
 
     function config($routeProvider, $locationProvider) {
 
+        //Hash url
+        $locationProvider.hashPrefix('');
+
         //Menu
-        $routeProvider.when('/', {
+        $routeProvider.when('/chamado', {
             templateUrl: 'app/features/chamado/chamado.html',
             controller: 'chamadoCtrl'
-        })
+        }).otherwise({ redirectTo: '/chamado' });
 
-        $routeProvider.when('/abrirChamado', {
-            templateUrl: 'app/features/abrir-chamado/abrir-chamado.html',
-            controller: 'chamadoCtrl'
+        $routeProvider.when('/abrir-chamado', {
+            templateUrl: 'app/features/chamado/abrir.chamado.html',
+            controller: 'abrirChamadoCtrl'
         })
 
         $routeProvider.when('/usuario', {
@@ -23,8 +26,6 @@
             controller: 'usuarioCtrl'
         })
 
-        //Hash url
-        $locationProvider.hashPrefix('');
     }
 
 }());

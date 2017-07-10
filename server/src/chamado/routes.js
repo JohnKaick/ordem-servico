@@ -10,14 +10,6 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/usuario/{usuario_sid}',
-        method: 'GET',
-        handler: handlers.getManyUsuario,
-        config: {
-            auth: false
-        }
-    },
-    {
         path: '/ordem-servico/chamado/{sid}',
         method: 'GET',
         handler: handlers.getOne,

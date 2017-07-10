@@ -10,16 +10,6 @@ module.exports.getMany = function (request, reply) {
     })
 }
 
-module.exports.getManyUsuario = function (request, reply) {
-    return sid.translate(request.params.usuario_sid, 'Usuario').then((id) => {
-        return ctrl.getManyUsuario(id)
-    }).then((model) => {
-        return reply(model.toJSON())
-    }).catch((err) => {
-        return errHandler(request, reply, err)
-    })
-}
-
 module.exports.getOne = function (request, reply) {
     return sid.translate(request.params.sid, 'Chamado').then((id) => {
         return ctrl.getOne(id)
@@ -31,14 +21,7 @@ module.exports.getOne = function (request, reply) {
 }
 
 module.exports.create = function (request, reply) {
-    let md = request.payload
-    md.created_by = request.auth.credentials.id
-    md.created_at = new Date()
-
-    return sid.translate(request.params.usuario_sid, 'Usuario').then((id) => {
-        md.usuario_id = id
-        return ctrl.create(md)
-    }).then((model) => {
+    return ctrl.create(request.payload, request.auth.credentials.id).then((model) => {
         return reply(model)
     }).catch((err) => {
         return errHandler(request, reply, err)

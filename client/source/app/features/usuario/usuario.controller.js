@@ -19,7 +19,7 @@
             $uibModal.open({
                 templateUrl: 'app/features/usuario/usuario.cadastro.html',
                 controller: 'usuarioCadastroCtrl',
-            }).then(function () {
+            }).result.then(function () {
                 $scope.load()
             })
         }

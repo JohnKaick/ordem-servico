@@ -20,7 +20,7 @@ module.exports = [
     {
         path: '/ordem-servico/usuario',
         method: 'PUT',
-        handler: handlers.create,
+        handler: handlers.createAccount,
         config: {
             auth: false
         }

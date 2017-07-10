@@ -4,7 +4,7 @@ const errHandler = require('./../../helpers/error-handler')
 
 module.exports.getMany = function (request, reply) {
     return ctrl.getMany().then((model) => {
-        return reply(model.toJSON())
+        return reply(model)
     }).catch((err) => {
         return errHandler(request, reply, err)
     })
@@ -20,8 +20,8 @@ module.exports.getOne = function (request, reply) {
     })
 }
 
-module.exports.create = function (request, reply) {
-    return ctrl.create(request.payload).then((model) => {
+module.exports.createAccount = function (request, reply) {
+    return ctrl.createAccount(request.payload).then((model) => {
         return reply(model)
     }).catch((err) => {
         return errHandler(request, reply, err)
