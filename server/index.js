@@ -8,6 +8,7 @@ server.register(require('./structure/server.plugins'), function (err) {
     if (err) {
         console.error('ERROR: ' + err)
     } else {
+        require('./structure/server.routes')(server)
 
         server.ext({
             type: 'onRequest',
@@ -18,10 +19,7 @@ server.register(require('./structure/server.plugins'), function (err) {
                 reply.continue()
             }
         })
-
-        require('./structure/server.routes')(server)
     }
 })
-
 
 module.exports = server

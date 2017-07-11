@@ -7,7 +7,7 @@
             <div class="page-actions form-inline">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input type="text" ng-model="filtro" class="form-control" placeholder="Filtrar chamados...">
+                    <input type="text" ng-model="buscar" class="form-control" placeholder="Filtrar chamados...">
                 </div>
             </div>
         </div>
@@ -22,6 +22,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Número</th>
                     <th>Título</th>
                     <th>Categoria</th>
                     <th>Criticidade</th>
@@ -31,12 +32,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+                <tr ng-repeat="chamado in lista | filter: buscar">
+                    <td>{{chamado.os}}</td>
+                    <td>{{chamado.titulo}}</td>
+                    <td>{{chamado.categoria}}</td>
+                    <td>{{chamado.criticidade}}</td>
+                    <td>{{chamado.status}}</td>
+                    <td>{{chamado.created_at | date }}</td>
                     <td>
                         <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                     </td>

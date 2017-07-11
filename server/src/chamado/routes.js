@@ -18,7 +18,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/chamado/{usuario_sid}',
+        path: '/ordem-servico/chamado',
         method: 'PUT',
         handler: handlers.create,
         config: {

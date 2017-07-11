@@ -7,19 +7,17 @@
 
     function chamadoAPI($http) {
 
-        return {
-            getAll = function () {
-                return $http.get('/ordem-servico/chamado')
-            },
-            getOne = function (sid) {
-                return $http.get('/ordem-servico/chamado/' + sid)
-            },
-            create = function (chamado) {
-                return $http.put('/ordem-servico/chamado', chamado)
-            },
-            update = function (chamado) {
-                return $http.post('/ordem-servico/chamado/' + chamado.sid, chamado)
-            },
+        this.getAll = function () {
+            return $http.get('/ordem-servico/chamado')
+        }
+        this.getOne = function (sid) {
+            return $http.get('/ordem-servico/chamado/' + sid)
+        }
+        this.create = function (chamado) {
+            return $http.put('/ordem-servico/chamado', chamado)
+        }
+        this.update = function (chamado) {
+            return $http.post('/ordem-servico/chamado/' + chamado.sid, chamado)
         }
 
     }

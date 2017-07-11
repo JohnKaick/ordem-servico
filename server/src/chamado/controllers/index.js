@@ -1,5 +1,4 @@
 module.exports.getMany = require('./get-many')
-module.exports.getManyUsuario = require('./get-many-usuario')
 module.exports.getOne = require('./get-one')
 module.exports.create = require('./create')
 module.exports.update = require('./update')

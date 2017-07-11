@@ -15,5 +15,6 @@ module.exports = function (server) {
         }
     })
 
+    server.route(require('./../src/chamado/routes'))
     server.route(require('./../src/usuario/routes'))
 }
