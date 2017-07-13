@@ -1,5 +1,5 @@
 const db = require('./../../../database')
 
-module.exports = function (id) {
-    return db.Usuario.where('id', id).fetch()
+module.exports = function (UsuarioId) {
+    return db.Usuario.where('id', UsuarioId).fetch()
 }

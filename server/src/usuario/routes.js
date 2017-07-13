@@ -10,7 +10,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/usuario/{sid}',
+        path: '/ordem-servico/usuario/{id}',
         method: 'GET',
         handler: handlers.getOne,
         config: {
@@ -26,7 +26,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/usuario/{sid}',
+        path: '/ordem-servico/usuario/{id}',
         method: 'POST',
         handler: handlers.update,
         config: {

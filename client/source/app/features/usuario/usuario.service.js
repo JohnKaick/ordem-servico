@@ -17,7 +17,7 @@
             return $http.put('/ordem-servico/usuario', usuario)
         }
         this.update = function (usuario) {
-            return $http.post('/ordem-servico/usuario/' + usuario.sid, usuario)
+            return $http.post('/ordem-servico/usuario/' + usuario.id, usuario)
         }
     }
 

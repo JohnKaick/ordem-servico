@@ -19,6 +19,25 @@
             $uibModal.open({
                 templateUrl: 'app/features/usuario/usuario.cadastro.html',
                 controller: 'usuarioCadastroCtrl',
+                resolve: {
+                    usuario: function () {
+                        return null
+                    }
+                }
+            }).result.then(function () {
+                $scope.load()
+            })
+        }
+
+        $scope.editar = function (usuario) {
+            $uibModal.open({
+                templateUrl: 'app/features/usuario/usuario.cadastro.html',
+                controller: 'usuarioCadastroCtrl',
+                resolve: {
+                    usuario: function () {
+                        return angular.copy(usuario)
+                    }
+                }
             }).result.then(function () {
                 $scope.load()
             })

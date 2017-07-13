@@ -5,10 +5,12 @@
         .module('app')
         .controller('usuarioCadastroCtrl', usuarioCadastroCtrl)
 
-    function usuarioCadastroCtrl($scope, usuarioAPI, $uibModalInstance) {
+    function usuarioCadastroCtrl($scope, $uibModalInstance, usuario, usuarioAPI) {
+
+        $scope.usuario = usuario || {}
 
         $scope.salvar = function (usuario) {
-            if (!usuario.sid) {
+            if (!usuario.id) {
                 usuarioAPI.create(usuario).then(function () {
                     $uibModalInstance.close();
                 }).catch(function (data) {

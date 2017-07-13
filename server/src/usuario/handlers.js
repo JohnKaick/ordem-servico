@@ -29,11 +29,8 @@ module.exports.createAccount = function (request, reply) {
 }
 
 module.exports.update = function (request, reply) {
-    let md = request.payload
-    md.updated_at = new Date()
-
     return sid.translate(request.params.sid, 'Usuario').then((id) => {
-        return ctrl.update(id, md)
+        return ctrl.update(id, request.payload)
     }).then((model) => {
         return reply(model)
     }).catch((err) => {
