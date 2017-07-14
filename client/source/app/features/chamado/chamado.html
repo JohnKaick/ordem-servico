@@ -22,25 +22,33 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Status</th>
                     <th>Número</th>
                     <th>Título</th>
                     <th>Categoria</th>
                     <th>Criticidade</th>
-                    <th>Status</th>
                     <th>Data de abertura</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="chamado in lista | filter: buscar">
+                    <td class="text-success" ng-if="chamado.status === 'aberto'"><strong>Aberto</strong></td>
+                    <td class="text-warning" ng-if="chamado.status === 'pendente'"><strong>Pendente</strong></td>
+                    <td class="text-info" ng-if="chamado.status === 'fechado'"><strong>Fechado</strong></td>
+                    <td class="text-danger" ng-if="chamado.status === 'vencido'"><strong>Vencido</strong></td>
                     <td>{{chamado.os}}</td>
                     <td>{{chamado.titulo}}</td>
-                    <td>{{chamado.categoria}}</td>
-                    <td>{{chamado.criticidade}}</td>
-                    <td>{{chamado.status}}</td>
+                    <td ng-if="chamado.categoria === 'sistema'">Sistema</td>
+                    <td ng-if="chamado.categoria === 'infraestrutura'">Infraestrutura</td>
+                    <td ng-if="chamado.categoria === 'telefonia'">Telefonia</td>
+                    <td ng-if="chamado.categoria === 'aplicacao_web'">Aplicação Web</td>
+                    <td class="text-danger" ng-if="chamado.criticidade === 'alto'">Alto</td>
+                    <td ng-if="chamado.criticidade === 'medio'">Médio</td>
+                    <td ng-if="chamado.criticidade === 'baixo'">Baixo</td>
                     <td>{{chamado.created_at | date }}</td>
                     <td>
-                        <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        <a href="#/chamado/{{chamado.sid}}/chamado-detail"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             </tbody>

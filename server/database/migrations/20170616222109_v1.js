@@ -15,9 +15,7 @@ exports.up = function (knex, Promise) {
             table.string('usuario_id').references('id').inTable('usuario')
             table.string('login', 255).notNullable()
             table.string('password_hash', 400).notNullable()
-            table.boolean('email_verificado')
             table.boolean('bloqueado')
-            table.boolean('online')
         }),
         knex.schema.createTableIfNotExists('role', function (table) {
             table.increments('id').primary()
@@ -27,12 +25,12 @@ exports.up = function (knex, Promise) {
         knex.schema.createTableIfNotExists('chamado', function (table) {
             table.increments('id').primary()
             table.string('sid', 14)
-            table.string('atendido_id').references('id').inTable('usuario')
+            table.string('responsavel_id').references('id').inTable('usuario')
             table.string('os')
             table.enu('tipo', ['incidente', 'requisição']).notNullable()
             table.enu('categoria', ['sistema', 'infraestrutura', 'telefonia', 'aplicacao_web']).notNullable()
             table.enu('criticidade', ['alto', 'medio', 'baixo']).notNullable()
-            table.enu('status', ['aberto', 'pendente', 'fechado', 'vencido', 'cancelado']).notNullable()
+            table.enu('status', ['aberto', 'pendente', 'fechado', 'vencido']).notNullable()
             table.string('titulo', 255).notNullable()
             table.string('descricao', 1020).notNullable()
             table.enu('area_responsavel', ['tecnico', 'admin'])
@@ -48,14 +46,16 @@ exports.up = function (knex, Promise) {
             table.increments('id').primary()
             table.string('sid', 14)
             table.integer('chamado_id').unsigned().references('id').inTable('chamado')
+            table.enu('status', ['aberto', 'pendente', 'fechado', 'vencido']).notNullable()
             table.string('descricao', 510).notNullable()
+            table.date('data_fechamento')
             table.dateTime('created_at')
         }),
         knex.schema.createTableIfNotExists('feedback', function (table) {
             table.increments('id').primary()
             table.string('sid', 14)
             table.integer('chamado_id').unsigned().references('id').inTable('chamado')
-            table.integer('satisfacao').notNullable()
+            table.enu('satisfacao', ['muito_satisfeito', 'satisfeito', 'normal', 'insatisfeito', 'muito_insatisfeito']).notNullable()
             table.string('descricao', 1020).notNullable()
             table.dateTime('created_at')
         }),

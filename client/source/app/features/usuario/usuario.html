@@ -30,6 +30,7 @@
                             <th>Exibição</th>
                             <th>E-mail</th>
                             <th>Perfil</th>
+                            <th>Ativo</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -37,7 +38,11 @@
                         <tr ng-repeat="usuario in lista | filter: buscar">
                             <td>{{usuario.exibicao}}</td>
                             <td>{{usuario.email}}</td>
-                            <td>{{usuario.chave}}</td>
+                            <td ng-if="usuario.chave === 'admin'">Admin</td>
+                            <td ng-if="usuario.chave === 'tecnico'">Técnico</td>
+                            <td ng-if="usuario.chave === 'usuario'">Usuário</td>
+                            <td ng-if="usuario.bloqueado === 1">Sim</td>
+                            <td ng-if="usuario.bloqueado === 0">Não</td>
                             <td>
                                 <a ng-click="editar(usuario)"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             </td>
