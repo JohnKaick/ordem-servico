@@ -6,32 +6,43 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-success">
-                <div class="panel-heading"><strong>Aberto</strong> / OS-1</div>
+                <div class="panel-heading"><strong>{{chamado.status}}</strong> / {{chamado.os}}</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-4">
                             <strong>Tipo</strong>
-                            <p>Incidente</p>
+                            <p ng-if="chamado.tipo === 'incidente'">Incidente</p>
+                            <p ng-if="chamado.tipo === 'requisição'">Requisição</p>
                         </div>
                         <div class="col-md-4">
                             <strong>Categoria</strong>
-                            <p>Sistema</p>
+                            <p ng-if="chamado.categoria === 'sistema'">Sistema</p>
+                            <p ng-if="chamado.categoria === 'infraestrutura'">Infraestrutura</p>
+                            <p ng-if="chamado.categoria === 'telefonia'">Telefonia</p>
+                            <p ng-if="chamado.categoria === 'aplicacao_web'">Aplicação Web</p>
                         </div>
                         <div class="col-md-4">
                             <strong>Criticidade</strong>
-                            <p>Medio</p>
+                            <p ng-if="chamado.criticidade === 'alto'">Alto</p>
+                            <p ng-if="chamado.criticidade === 'medio'">Médio</p>
+                            <p ng-if="chamado.criticidade === 'baixo'">Baixo</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <strong>Título</strong>
-                            <p>atualizar o revit 2017</p>
+                            <p>{{chamado.titulo}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <strong>Descrição</strong>
-                            <p>flskhadhdfhdsfhdfkdsfhdfdfh</p>
+                            <p>{{chamado.descricao}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" ng-click="editar(chamado)">Editar</button>
                         </div>
                     </div>
                 </div>

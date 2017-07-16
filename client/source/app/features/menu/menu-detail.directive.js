@@ -6,16 +6,16 @@
         .controller('menuDetailCtrl', menuDetailCtrl)
         .directive('uiMenuDetail', uiMenuDetail)
 
-    function menuDetailCtrl($scope) {
+    function menuDetailCtrl() {
     }
 
-    function uiMenuDetail() {
+    function uiMenuDetail($routeParams) {
         return {
             restrict: 'E',
             templateUrl: 'app/features/menu/menu-detail.html',
-            controller: 'menuDetailCtrl',
-            scope: {
-                ngModel: '='
+            controller: menuDetailCtrl,
+            link: function (scope, elem, attrs) {
+                scope.chamadoSid = $routeParams.chamadoSid
             }
         }
     }

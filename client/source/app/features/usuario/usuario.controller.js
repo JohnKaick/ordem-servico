@@ -7,8 +7,6 @@
 
     function usuarioCtrl($scope, $uibModal, usuarioAPI) {
 
-        $scope.lista = []
-
         $scope.load = function () {
             usuarioAPI.getAll().then(function (result) {
                 $scope.lista = result.data

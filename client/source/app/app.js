@@ -7,39 +7,26 @@
 
     function config($routeProvider, $locationProvider) {
 
-        // Menu
         $routeProvider.when('/chamado', {
             templateUrl: 'app/features/chamado/chamado.html',
             controller: 'chamadoCtrl'
-        })
-
-        $routeProvider.when('/abrir-chamado', {
+        }).when('/abrir-chamado', {
             templateUrl: 'app/features/chamado/abrir-chamado.html',
             controller: 'abrirChamadoCtrl'
-        })
-
-        $routeProvider.when('/usuario', {
+        }).when('/usuario', {
             templateUrl: 'app/features/usuario/usuario.html',
             controller: 'usuarioCtrl'
-        })
-
-        // Menu-detail
-        $routeProvider.when('/chamado-detalhes', {
+        }).when('/chamado/:chamadoSid/chamado-detalhes', {
             templateUrl: 'app/features/chamado/chamado-detail.html',
             controller: 'chamadoDetailCtrl'
-        })
-
-        $routeProvider.when('/acompanhamento', {
+        }).when('/chamado/:chamadoSid/acompanhamento', {
             templateUrl: 'app/features/acompanhamento/acompanhamento.html',
             controller: 'acompanhamentoCtrl'
-        })
-
-        $routeProvider.when('/feedback', {
+        }).when('/chamado/:chamadoSid/feedback', {
             templateUrl: 'app/features/feedback/feedback.html',
             controller: 'feedbackCtrl'
-        })
+        }).otherwise({ redirectTo: '/chamado' })
 
-        // Hash url
         $locationProvider.hashPrefix('');
 
     }
