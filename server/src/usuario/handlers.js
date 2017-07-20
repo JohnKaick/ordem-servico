@@ -6,7 +6,7 @@ module.exports.getMany = function (request, reply) {
     return ctrl.getMany().then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
@@ -16,7 +16,7 @@ module.exports.getOne = function (request, reply) {
     }).then((model) => {
         return reply(model.toJSON())
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
@@ -24,7 +24,7 @@ module.exports.createAccount = function (request, reply) {
     return ctrl.createAccount(request.payload).then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
@@ -34,6 +34,6 @@ module.exports.update = function (request, reply) {
     }).then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }

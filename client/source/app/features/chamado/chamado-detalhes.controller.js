@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .controller('chamadoDetailCtrl', chamadoDetailCtrl)
+        .controller('chamadoDetalhesCtrl', chamadoDetalhesCtrl)
 
-    function chamadoDetailCtrl($scope, $routeParams, $uibModal, chamadoAPI) {
+    function chamadoDetalhesCtrl($scope, $routeParams, $uibModal, chamadoAPI) {
 
         $scope.load = function () {
             chamadoAPI.getOne($routeParams.chamadoSid).then(function (result) {

@@ -8,7 +8,7 @@ module.exports.getMany = function (request, reply) {
     }).then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
@@ -18,17 +18,17 @@ module.exports.getOne = function (request, reply) {
     }).then((model) => {
         return reply(model.toJSON())
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
 module.exports.create = function (request, reply) {
     return sid.translate(request.params.chamadoSid, 'Chamado').then((id) => {
-        return ctrl.create(id, request.payload)
+        return ctrl.create(request.payload, id)
     }).then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }
 
@@ -38,6 +38,6 @@ module.exports.destroy = function (request, reply) {
     }).then((model) => {
         return reply(model)
     }).catch((err) => {
-        return errHandler(request, reply, err)
+        return errHandler.resolve(request, reply, err)
     })
 }

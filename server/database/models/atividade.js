@@ -2,7 +2,7 @@ const shortId = require('shortid')
 
 module.exports = function (bookshelf) {
     return bookshelf.Model.extend({
-        tableName: 'acompanhamento',
+        tableName: 'atividade',
         hidden: ['id', 'chamado_id'],
         constructor: function () {
             bookshelf.Model.apply(this, arguments)

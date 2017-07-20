@@ -26,6 +26,7 @@
     "hapi-router": "^3.5.0",
     "inert": "^4.2.0",
     "knex": "^0.13.0",
+    "moment": "^2.18.1",
     "mysql": "^2.13.0",
     "password-hash": "^1.2.2",
     "shortid": "^2.2.8"

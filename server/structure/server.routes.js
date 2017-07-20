@@ -17,4 +17,6 @@ module.exports = function (server) {
 
     server.route(require('./../src/chamado/routes'))
     server.route(require('./../src/usuario/routes'))
+    server.route(require('./../src/atividade/routes'))
+    server.route(require('./../src/feedback/routes'))
 }

@@ -17,7 +17,7 @@ bookshelf.Usuario = require('./models/usuario')(bookshelf)
 bookshelf.Conta = require('./models/conta')(bookshelf)
 bookshelf.Role = require('./models/role')(bookshelf)
 bookshelf.Chamado = require('./models/chamado')(bookshelf)
-bookshelf.Acompanhamento = require('./models/acompanhamento')(bookshelf)
+bookshelf.Atividade = require('./models/atividade')(bookshelf)
 bookshelf.Feedback = require('./models/feedback')(bookshelf)
 bookshelf.ImgChamado = require('./models/img-chamado')(bookshelf)
 

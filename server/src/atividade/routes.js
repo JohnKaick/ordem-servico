@@ -2,7 +2,7 @@ const handlers = require('./handlers.js')
 
 module.exports = [
     {
-        path: '/ordem-servico/acompanhamento/chamado/{chamadoSid}',
+        path: '/ordem-servico/atividade/chamado/{chamadoSid}',
         method: 'GET',
         handler: handlers.getMany,
         config: {
@@ -10,7 +10,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/acompanhamento/{id}',
+        path: '/ordem-servico/atividade/{id}',
         method: 'GET',
         handler: handlers.getOne,
         config: {
@@ -18,7 +18,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/acompanhamento/{chamadoSid}',
+        path: '/ordem-servico/atividade/{chamadoSid}',
         method: 'PUT',
         handler: handlers.create,
         config: {
@@ -26,7 +26,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/acompanhamento/{id}',
+        path: '/ordem-servico/atividade/{id}',
         method: 'DELETE',
         handler: handlers.destroy,
         config: {

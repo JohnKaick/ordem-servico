@@ -1,31 +1,49 @@
 <ui-menu></ui-menu>
 
-<ui-menu-detail></ui-menu-detail>
+<ui-menu-detalhes></ui-menu-detalhes>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-success">
-                <div class="panel-heading"><strong>{{chamado.status}}</strong> / {{chamado.os}}</div>
+                <div class="panel-heading"><strong>({{chamado.status}})</strong> {{chamado.os}}</div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <strong>Tipo</strong>
                             <p ng-if="chamado.tipo === 'incidente'">Incidente</p>
                             <p ng-if="chamado.tipo === 'requisição'">Requisição</p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <strong>Categoria</strong>
                             <p ng-if="chamado.categoria === 'sistema'">Sistema</p>
                             <p ng-if="chamado.categoria === 'infraestrutura'">Infraestrutura</p>
                             <p ng-if="chamado.categoria === 'telefonia'">Telefonia</p>
                             <p ng-if="chamado.categoria === 'aplicacao_web'">Aplicação Web</p>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <strong>Criticidade</strong>
                             <p ng-if="chamado.criticidade === 'alto'">Alto</p>
                             <p ng-if="chamado.criticidade === 'medio'">Médio</p>
                             <p ng-if="chamado.criticidade === 'baixo'">Baixo</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Responsavel pelo atendimento</strong>
+                            <p ng-if="chamado.responsavel != null">{{chamado.responsavel}}</p>
+                            <p ng-if="chamado.responsavel == null">(Aguardando o primeiro atendimento)</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Prazo para atendimento</strong>
+                            <p>{{chamado.prazo | date}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Data de término</strong>
+                            <p ng-if="chamado.termino != null">{{chamado.termino | date}}</p>
+                            <p ng-if="chamado.termino == null"></p>
                         </div>
                     </div>
                     <div class="row">
