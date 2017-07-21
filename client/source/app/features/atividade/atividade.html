@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <form class="form">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label>Data de prazo</label>
                                     <ui-date ng-model="cadastro.prazo"></ui-date>
@@ -29,7 +29,7 @@
                             <div class="col-md-12">
                                 <button class="btn btn-danger" ng-if="status === 'aberto' || status === 'pendente'" ng-click="finalizar(cadastro)">Finalizar O.S.</button>
                                 <button class="btn btn-success" ng-if="status === 'fechado'" ng-click="abrir(cadastro)">Reabrir O.S.</button>
-                                <button class="btn btn-primary" ng-click="comentar(cadastro)">Comentar</button>
+                                <button class="btn btn-primary" ng-click="salvar(cadastro)">Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -37,18 +37,16 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong>John Kaick</strong> - 11/07/2017
+            <div ng-repeat="atividade in lista" class="panel panel-default" >
+                <div class="panel-heading">
+                    <span class="label label-success" ng-if="atividade.status === 'aberto'">Aberto</span>
+                    <span class="label label-warning" ng-if="atividade.status === 'pendente'">Pendente</span>
+                    <span class="label label-info" ng-if="atividade.status === 'fechado'">Fechado</span>
+                    <strong>{{atividade.usuario}}</strong> - {{atividade.created_at | date : "dd/MM/yyyy"}}
                     <a href="" ng-click="excluir(atividade)" style="float: right"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
                 <div class="panel-body">
-                    dklsjaldhaskjdslkajdklsjalk
-                </div>
-            </div>
-            <div class="panel panel-default ">
-                <div class="panel-heading "><strong>John Kaick</strong> - 11/07/2017</div>
-                <div class="panel-body ">
-                    dklsjaldhaskjdslkajdklsjalk
+                    {{atividade.descricao}}
                 </div>
             </div>
         </div>

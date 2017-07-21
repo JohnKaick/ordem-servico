@@ -19,7 +19,6 @@
   "homepage": "https://github.com/JohnKaick/ordem-servico#readme",
   "dependencies": {
     "bookshelf": "^0.10.3",
-    "bookshelf-cascade-delete": "^2.0.1",
     "dotenv": "^4.0.0",
     "hapi": "^16.4.3",
     "hapi-boom-decorators": "^3.0.0",

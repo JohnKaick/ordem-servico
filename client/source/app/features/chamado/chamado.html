@@ -46,7 +46,7 @@
                     <td class="text-danger" ng-if="chamado.criticidade === 'alto'">Alto</td>
                     <td ng-if="chamado.criticidade === 'medio'">Médio</td>
                     <td ng-if="chamado.criticidade === 'baixo'">Baixo</td>
-                    <td>{{chamado.created_at | date }}</td>
+                    <td>{{chamado.created_at | date : "dd/MM/yyyy" }}</td>
                     <td>
                         <a href="#/chamado/{{chamado.sid}}/chamado-detalhes" ><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></a>
                     </td>

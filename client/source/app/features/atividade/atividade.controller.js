@@ -8,7 +8,7 @@
     function atividadeCtrl($scope, $routeParams, atividadeAPI) {
 
         $scope.load = function () {
-            atividadeAPI.getOne($routeParams.chamadoSid).then(function (result) {
+            atividadeAPI.getAll($routeParams.chamadoSid).then(function (result) {
                 $scope.lista = result.data
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -19,7 +19,7 @@
             var _atividade = atividade
             _atividade.status = 'fechado'
 
-            atividadeAPI.create(_atividade).then(function (result) {
+            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -30,18 +30,18 @@
             var _atividade = atividade
             _atividade.status = 'aberto'
 
-            atividadeAPI.create(_atividade).then(function (result) {
+            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
             })
         }
 
-        $scope.comentar = function (atividade) {
+        $scope.salvar = function (atividade) {
             var _atividade = atividade
             _atividade.status = 'pendente'
 
-            atividadeAPI.create(_atividade).then(function (result) {
+            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data

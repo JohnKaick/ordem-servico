@@ -13,7 +13,7 @@ module.exports.getMany = function (request, reply) {
 }
 
 module.exports.getOne = function (request, reply) {
-    return sid.translate(request.params.sid, 'Usuario').then((id) => {
+    return sid.translate(request.params.sid, 'Atividade').then((id) => {
         return ctrl.getOne(id)
     }).then((model) => {
         return reply(model.toJSON())
@@ -24,19 +24,19 @@ module.exports.getOne = function (request, reply) {
 
 module.exports.create = function (request, reply) {
     return sid.translate(request.params.chamadoSid, 'Chamado').then((id) => {
-        return ctrl.create(request.payload, id)
-    }).then((model) => {
-        return reply(model)
+        return ctrl.create(request.payload, id, request.auth.credentials.id)
+    }).then(() => {
+        return reply({ success: true })
     }).catch((err) => {
         return errHandler.resolve(request, reply, err)
     })
 }
 
 module.exports.destroy = function (request, reply) {
-    return sid.translate(request.params.sid, 'Usuario').then((id) => {
+    return sid.translate(request.params.sid, 'Atividade').then((id) => {
         return ctrl.destroy(id)
-    }).then((model) => {
-        return reply(model)
+    }).then(() => {
+        return reply({ success: true })
     }).catch((err) => {
         return errHandler.resolve(request, reply, err)
     })

@@ -8,35 +8,37 @@ const definirData = function (status, prazo) {
     if (status === 'aberto') {
         _prazo = new Date()
     } else if (status === 'fechado') {
-        _data = new Date()
+        _prazo = new Date()
         _termino = new Date()
     } else {
-        _data = new Date(prazo)
+        _prazo = new Date(prazo)
     }
 
-    return Promise.resolve([_data, _termino])
+    return Promise.resolve([_prazo, _termino])
 }
 
-module.exports = function (model, chamadoId) {
-    return new Promise((resolve, reject) => {
-        return definirData(md.status, md.prazo).then(([_prazo, _termino]) => {
-            return db.transaction((t) => {
-                return db.Atividade.forge().save({
-                    'chamado_id': chamadoId,
+module.exports = function (model, chamadoId, usuarioId) {
+    let atividade = new db.Atividade()
+    atividade.set('chamado_id', chamadoId)
+    atividade.set('status', model.status)
+    atividade.set('descricao', model.descricao)
+    atividade.set('created_by', usuarioId)
+    atividade.set('created_at', new Date())
+
+    return definirData(model.status, model.prazo).then(([_prazo, _termino]) => {
+        return db.transaction((t) => {
+            return atividade.save(null, {
+                method: 'insert',
+                transaction: t
+            }).then((a) => {
+                return db.Chamado.forge({ 'id': chamadoId }).save({
                     'status': model.status,
-                    'descricao': model.descricao,
-                    'created_by': request.auth.credentials.id,
-                    'created_at': new Date()
-                }, { transaction: t }).then((a) => {
-                    return db.Chamado.forge({ 'id': chamadoId }).save({
-                        'status': model.status,
-                        'prazo': _prazo,
-                        'termino': _termino,
-                        'updated_by': request.auth.credentials.id,
-                        'updated_at': new Date()
-                    })
-                })
+                    'prazo': _prazo,
+                    'termino': _termino,
+                    'updated_by': usuarioId,
+                    'updated_at': new Date()
+                }, { transaction: t })
             })
-        }).then(() => resolve())
-    })
+        })
+    }).then(() => Promise.resolve())
 }

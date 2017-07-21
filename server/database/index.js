@@ -11,7 +11,6 @@ const knex = require('knex')({
 const bookshelf = require('bookshelf')(knex)
 
 bookshelf.plugin('visibility')
-bookshelf.plugin(require('bookshelf-cascade-delete'))
 
 bookshelf.Usuario = require('./models/usuario')(bookshelf)
 bookshelf.Conta = require('./models/conta')(bookshelf)

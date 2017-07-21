@@ -41,18 +41,3 @@ module.exports.update = function (request, reply) {
         return errHandler.resolve(request, reply, err)
     })
 }
-
-module.exports.destroy = function (request, reply) {
-    let md = {
-        deleted_by: request.auth.credentials.id,
-        deleted_at: new Date()
-    }
-
-    return sid.translate(request.params.sid, 'Chamado').then((id) => {
-        return ctrl.destroy(id, md)
-    }).then((model) => {
-        return reply({ success: true })
-    }).catch((err) => {
-        return errHandler.resolve(request, reply, err)
-    })
-}

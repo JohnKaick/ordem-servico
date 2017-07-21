@@ -10,7 +10,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/atividade/{id}',
+        path: '/ordem-servico/atividade/{sid}',
         method: 'GET',
         handler: handlers.getOne,
         config: {
@@ -26,7 +26,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/atividade/{id}',
+        path: '/ordem-servico/atividade/{sid}',
         method: 'DELETE',
         handler: handlers.destroy,
         config: {

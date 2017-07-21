@@ -47,6 +47,7 @@ exports.up = function (knex, Promise) {
             table.integer('chamado_id').unsigned().references('id').inTable('chamado')
             table.enu('status', ['aberto', 'pendente', 'fechado', 'vencido']).notNullable()
             table.string('descricao', 510).notNullable()
+            table.string('created_by', 14)
             table.dateTime('created_at')
         }),
         knex.schema.createTableIfNotExists('feedback', function (table) {

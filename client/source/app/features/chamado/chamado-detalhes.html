@@ -5,8 +5,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-success">
-                <div class="panel-heading"><strong>({{chamado.status}})</strong> {{chamado.os}}</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="label label-success" ng-if="chamado.status === 'aberto'">Aberto</span>
+                    <span class="label label-warning" ng-if="chamado.status === 'pendente'">Pendente</span>
+                    <span class="label label-info" ng-if="chamado.status === 'fechado'">Fechado</span>
+                    <span class="label label-danger" ng-if="chamado.status === 'vencido'">Vencido</span> {{chamado.os}}
+                </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -38,11 +43,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <strong>Prazo para atendimento</strong>
-                            <p>{{chamado.prazo | date}}</p>
+                            <p>{{chamado.prazo | date : "dd/MM/yyyy"}}</p>
                         </div>
                         <div class="col-md-6">
                             <strong>Data de término</strong>
-                            <p ng-if="chamado.termino != null">{{chamado.termino | date}}</p>
+                            <p ng-if="chamado.termino != null">{{chamado.termino | date : "dd/MM/yyyy"}}</p>
                             <p ng-if="chamado.termino == null"></p>
                         </div>
                     </div>

@@ -32,13 +32,5 @@ module.exports = [
         config: {
             auth: false
         }
-    },
-    {
-        path: '/ordem-servico/chamado/{sid}',
-        method: 'DELETE',
-        handler: handlers.destroy,
-        config: {
-            auth: false
-        }
     }
 ]
