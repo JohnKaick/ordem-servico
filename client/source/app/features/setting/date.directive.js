@@ -14,9 +14,9 @@
         }
     }
 
-    function uiDate($routeParams) {
+    function uiDate() {
         return {
-            templateUrl: '/app/features/menu/date.html',
+            templateUrl: '/app/features/setting/date.html',
             controller: dateCtrl,
             scope: {
                 ngModel: '=',

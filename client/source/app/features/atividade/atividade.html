@@ -27,9 +27,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-danger" ng-if="status === 'aberto' || status === 'pendente'" ng-click="finalizar(cadastro)">Finalizar O.S.</button>
-                                <button class="btn btn-success" ng-if="status === 'fechado'" ng-click="abrir(cadastro)">Reabrir O.S.</button>
-                                <button class="btn btn-primary" ng-click="salvar(cadastro)">Salvar</button>
+                                <button class="btn btn-danger" ng-if="data.status !== 'fechado'" ng-click="finalizar(cadastro)">Finalizar O.S.</button>
+                                <button class="btn btn-success" ng-if="data.status === 'fechado'" ng-click="abrir(cadastro)">Reabrir O.S.</button>
+                                <button class="btn btn-primary" ng-if="data.status !== 'fechado'" ng-click="salvar(cadastro)">Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div ng-repeat="atividade in lista" class="panel panel-default" >
+            <div ng-repeat="atividade in lista" class="panel panel-default">
                 <div class="panel-heading">
                     <span class="label label-success" ng-if="atividade.status === 'aberto'">Aberto</span>
                     <span class="label label-warning" ng-if="atividade.status === 'pendente'">Pendente</span>

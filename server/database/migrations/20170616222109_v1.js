@@ -25,7 +25,6 @@ exports.up = function (knex, Promise) {
         knex.schema.createTableIfNotExists('chamado', function (table) {
             table.increments('id').primary()
             table.string('sid', 14)
-            table.string('responsavel_id').references('id').inTable('usuario')
             table.string('os')
             table.enu('tipo', ['incidente', 'requisição']).notNullable()
             table.enu('categoria', ['sistema', 'infraestrutura', 'telefonia', 'aplicacao_web']).notNullable()

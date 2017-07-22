@@ -5,7 +5,9 @@
         .module('app')
         .controller('atividadeCtrl', atividadeCtrl)
 
-    function atividadeCtrl($scope, $routeParams, atividadeAPI) {
+    function atividadeCtrl($scope, $routeParams, atividadeAPI, scopeGlobalService) {
+
+        $scope.data = scopeGlobalService.value;
 
         $scope.load = function () {
             atividadeAPI.getAll($routeParams.chamadoSid).then(function (result) {
@@ -20,6 +22,7 @@
             _atividade.status = 'fechado'
 
             atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
+                scopeGlobalService.set(_atividade.status, 'status')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -31,6 +34,7 @@
             _atividade.status = 'aberto'
 
             atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
+                scopeGlobalService.set(_atividade.status, 'status')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -42,6 +46,7 @@
             _atividade.status = 'pendente'
 
             atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
+                scopeGlobalService.set(_atividade.status, 'status')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data

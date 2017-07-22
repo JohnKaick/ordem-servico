@@ -5,7 +5,8 @@
                 <a href="#/chamado" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                 <a href="#/chamado/{{chamadoSid}}/chamado-detalhes" class="btn btn-default">Detalhes</a>
                 <a href="#/chamado/{{chamadoSid}}/atividades" class="btn btn-default">Atividades</a>
-                <a href="#/chamado/{{chamadoSid}}/feedback" class="btn btn-default">Feedback</a>
+                <a href="#/chamado/{{chamadoSid}}/feedback" class="btn btn-default" ng-if="data.status === 'fechado'">Feedback</a>
+                <a href="#/chamado/{{chamadoSid}}/feedback" class="btn btn-default disabled" ng-if="data.status === 'aberto' || data.status === 'pendente' || data.status === 'vencido'">Feedback</a>
             </div>
         </div>
     </div>

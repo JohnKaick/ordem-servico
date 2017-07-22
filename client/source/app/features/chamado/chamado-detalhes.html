@@ -35,26 +35,19 @@
                             <p ng-if="chamado.criticidade === 'baixo'">Baixo</p>
                         </div>
                         <div class="col-md-6">
-                            <strong>Responsavel pelo atendimento</strong>
-                            <p ng-if="chamado.responsavel != null">{{chamado.responsavel}}</p>
-                            <p ng-if="chamado.responsavel == null">(Aguardando o primeiro atendimento)</p>
+                            <strong>Prazo para atendimento</strong>
+                            <p>{{chamado.prazo | date : "dd/MM/yyyy"}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Prazo para atendimento</strong>
-                            <p>{{chamado.prazo | date : "dd/MM/yyyy"}}</p>
+                            <strong>Título</strong>
+                            <p>{{chamado.titulo}}</p>
                         </div>
                         <div class="col-md-6">
                             <strong>Data de término</strong>
                             <p ng-if="chamado.termino != null">{{chamado.termino | date : "dd/MM/yyyy"}}</p>
                             <p ng-if="chamado.termino == null"></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <strong>Título</strong>
-                            <p>{{chamado.titulo}}</p>
                         </div>
                     </div>
                     <div class="row">
