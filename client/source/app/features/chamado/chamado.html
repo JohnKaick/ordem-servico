@@ -38,7 +38,7 @@
                     <td class="text-info" ng-if="chamado.status === 'fechado'"><strong>Fechado</strong></td>
                     <td class="text-danger" ng-if="chamado.status === 'vencido'"><strong>Vencido</strong></td>
                     <td>{{chamado.os}}</td>
-                    <td>{{chamado.titulo}}</td>
+                    <td>{{chamado.titulo | ellipsis: 50}}</td>
                     <td ng-if="chamado.categoria === 'sistema'">Sistema</td>
                     <td ng-if="chamado.categoria === 'infraestrutura'">Infraestrutura</td>
                     <td ng-if="chamado.categoria === 'telefonia'">Telefonia</td>
@@ -48,7 +48,9 @@
                     <td ng-if="chamado.criticidade === 'baixo'">Baixo</td>
                     <td>{{chamado.created_at | date : "dd/MM/yyyy" }}</td>
                     <td>
-                        <a href="#/chamado/{{chamado.sid}}/chamado-detalhes" ><i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i></a>
+                        <a href="#/chamado/{{chamado.sid}}/chamado-detalhes">
+                            <i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>

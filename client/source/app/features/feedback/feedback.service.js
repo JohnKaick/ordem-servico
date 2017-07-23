@@ -7,8 +7,8 @@
 
     function feedbackAPI($http) {
 
-        this.create = function (feedback) {
-            return $http.put('/ordem-servico/feedback', feedback)
+        this.create = function (chamadoSid, feedback) {
+            return $http.put('/ordem-servico/feedback/' + chamadoSid, feedback)
         }
 
     }

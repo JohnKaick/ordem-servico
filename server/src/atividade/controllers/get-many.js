@@ -9,4 +9,5 @@ module.exports = function (chamadoId) {
         'usuario.exibicao as usuario',
         'atividade.created_at as created_at',
         'atividade.descricao as descricao')
+        .orderBy('atividade.created_at', 'DESC')
 }

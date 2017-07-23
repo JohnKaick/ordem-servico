@@ -7,6 +7,8 @@
 
     function usuarioCadastroCtrl($scope, $uibModalInstance, usuario, usuarioAPI) {
 
+        $scope.usuario = usuario || {}
+
         $scope.salvar = function (usuario) {
             if (!usuario.id) {
                 usuarioAPI.create(usuario).then(function () {

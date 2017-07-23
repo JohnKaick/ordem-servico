@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <form class="form">
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Data de prazo</label>
                                     <ui-date ng-model="cadastro.prazo"></ui-date>
@@ -42,11 +42,15 @@
                     <span class="label label-success" ng-if="atividade.status === 'aberto'">Aberto</span>
                     <span class="label label-warning" ng-if="atividade.status === 'pendente'">Pendente</span>
                     <span class="label label-info" ng-if="atividade.status === 'fechado'">Fechado</span>
-                    <strong>{{atividade.usuario}}</strong> - {{atividade.created_at | date : "dd/MM/yyyy"}}
-                    <a href="" ng-click="excluir(atividade)" style="float: right"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <strong>{{atividade.usuario}}</strong> - {{atividade.created_at | date : "dd/MM/yyyy"}}</h3>
+                    <a href="" ng-click="excluir(atividade)" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
                 <div class="panel-body">
-                    {{atividade.descricao}}
+                    <div class="row">
+                        <div class="col-sm-6">
+                           {{atividade.descricao}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

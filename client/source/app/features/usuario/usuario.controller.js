@@ -29,13 +29,13 @@
             })
         }
 
-        $scope.editar = function (u) {
+        $scope.editar = function (user) {
             $uibModal.open({
                 templateUrl: 'app/features/usuario/usuario.cadastro.html',
                 controller: 'usuarioCadastroCtrl',
                 resolve: {
                     usuario: function () {
-                        return angular.copy(u)
+                        return angular.copy(user)
                     }
                 }
             }).result.then(function () {

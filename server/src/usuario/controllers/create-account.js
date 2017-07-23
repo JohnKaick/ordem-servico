@@ -14,7 +14,7 @@ module.exports = function (model) {
 
     let conta = new db.Conta()
     conta.set('login', model.email)
-    conta.set('password_hash', passwordHash.generate('interativa'))
+    conta.set('password_hash', passwordHash.generate('password123'))
     conta.set('bloqueado', model.bloqueado)
 
     let role = new db.Role()

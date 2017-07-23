@@ -10,16 +10,6 @@ module.exports.getMany = function (request, reply) {
     })
 }
 
-module.exports.getOne = function (request, reply) {
-    return sid.translate(request.params.sid, 'Usuario').then((id) => {
-        return ctrl.getOne(id)
-    }).then((model) => {
-        return reply(model.toJSON())
-    }).catch((err) => {
-        return errHandler.resolve(request, reply, err)
-    })
-}
-
 module.exports.createAccount = function (request, reply) {
     return ctrl.createAccount(request.payload).then((model) => {
         return reply(model)

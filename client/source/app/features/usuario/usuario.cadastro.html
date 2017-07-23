@@ -7,56 +7,56 @@
     <form class="form">
 
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input class="form-control" type="text" ng-model="cadastro.nome" required>
+                    <input class="form-control" type="text" ng-model="usuario.nome" required>
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label>Sobrenome</label>
-                    <input class="form-control" type="text" ng-model="cadastro.sobrenome">
+                    <input class="form-control" type="text" ng-model="usuario.sobrenome">
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Nome de Exibição</label>
-                    <input class="form-control" type="text" ng-model="cadastro.exibicao">
+                    <input class="form-control" type="text" ng-model="usuario.exibicao">
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>E-mail</label>
-                    <input class="form-control" type="email" ng-model="cadastro.email" required>
+                    <input class="form-control" type="email" ng-model="usuario.email" required>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Perfil</label>
-                    <select class="form-control" ng-model="cadastro.chave" required>
+                    <select class="form-control" ng-model="usuario.chave" required>
                     <option value="admin">Admin</option>
                     <option value="tecnico">Técnico</option>
-                    <option value="usuario">Usuário</option>
+                    <option value="solicitante">Solicitante</option>
                 </select>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" ng-model="cadastro.bloqueado"> Bloqueado
+                        <input type="checkbox" ng-model="usuario.bloqueado"> Bloqueado
                     </label>
                 </div>
             </div>
@@ -66,6 +66,6 @@
 </div>
 
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="salvar(cadastro)">Salvar</button>
+    <button type="button" class="btn btn-primary" ng-click="salvar(usuario)">Salvar</button>
     <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
 </div>

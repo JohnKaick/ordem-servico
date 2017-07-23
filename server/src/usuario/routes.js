@@ -10,14 +10,6 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/usuario/{id}',
-        method: 'GET',
-        handler: handlers.getOne,
-        config: {
-            auth: false
-        }
-    },
-    {
         path: '/ordem-servico/usuario',
         method: 'PUT',
         handler: handlers.createAccount,
@@ -26,7 +18,7 @@ module.exports = [
         }
     },
     {
-        path: '/ordem-servico/usuario/{id}',
+        path: '/ordem-servico/usuario/{contaSid}',
         method: 'POST',
         handler: handlers.update,
         config: {

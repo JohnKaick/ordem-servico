@@ -6,6 +6,8 @@
 
     function chamadoCadastroCtrl($scope, $uibModalInstance, chamado, chamadoAPI) {
 
+        $scope.chamado = chamado || {}
+
         $scope.salvar = function (chamado) {
             chamadoAPI.update(chamado).then(function (result) {
                 $uibModalInstance.close();

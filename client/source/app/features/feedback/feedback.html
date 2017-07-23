@@ -13,7 +13,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Satisfação</label>
-                                    <select class="form-control">
+                                    <select class="form-control" mg-model="feedback.satisfacao">
                                         <option></option>
                                         <option value="muito_satisfeito">Muito Satisfeito</option>
                                         <option value="satisfeito">Satisfeito</option>
@@ -28,13 +28,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="form-label" for="descricao">Descrição</label>
-                                    <textarea class="form-control" rows="5" type="text" id="descricao" placeholder="..." required></textarea>
+                                    <textarea class="form-control" rows="5" type="text" id="descricao" placeholder="..." ng-model="feedback.descricao" required></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary">Salvar</button>
+                                <button class="btn btn-primary" ng-click="salvar(feedback)">Salvar</button>
                             </div>
                         </div>
                     </form>

@@ -18,11 +18,9 @@
         }
 
         $scope.finalizar = function (atividade) {
-            var _atividade = atividade
-            _atividade.status = 'fechado'
-
-            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
-                scopeGlobalService.set(_atividade.status, 'status')
+            atividade.status = 'fechado'
+            atividadeAPI.create($routeParams.chamadoSid, atividade).then(function (result) {
+                scopeGlobalService.set(atividade.status, 'status')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -30,11 +28,9 @@
         }
 
         $scope.abrir = function (atividade) {
-            var _atividade = atividade
-            _atividade.status = 'aberto'
-
-            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
-                scopeGlobalService.set(_atividade.status, 'status')
+            atividade.status = 'aberto'
+            atividadeAPI.create($routeParams.chamadoSid, atividade).then(function (result) {
+                scopeGlobalService.set(atividade.status, 'atividade')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
@@ -42,11 +38,9 @@
         }
 
         $scope.salvar = function (atividade) {
-            var _atividade = atividade
-            _atividade.status = 'pendente'
-
-            atividadeAPI.create($routeParams.chamadoSid, _atividade).then(function (result) {
-                scopeGlobalService.set(_atividade.status, 'status')
+            atividade.status = 'pendente'
+            atividadeAPI.create($routeParams.chamadoSid, atividade).then(function (result) {
+                scopeGlobalService.set(atividade.status, 'status')
                 $scope.load()
             }).catch(function (data) {
                 $scope.message = 'Error: ' + data
