@@ -6,19 +6,21 @@ const generateToken = require('./generate-token')
 const eh = require('./../../../../helpers/error-handler')
 const KnownError = eh.KnownError
 
-module.exports = function (request, reply) {
+module.exports = function (login, password) {
     let _conta = null
     let _role = null
-    let login = request.payload.login
-    let password = request.payload.password
 
     db.Conta.where('login', login)
         .fetch({ withRelated: ['usuario'] })
         .then((c) => {
-            _conta = c
+
+            _conta = c.toJSON()
             return checkAccess.login(_conta, password)
+
         }).then(() => {
+
             return getRoles(_conta.get('usuario_id'))
+            
         }).then((roles) => {
             _role = roles
             return sessionManager.create(request, _conta, _role)

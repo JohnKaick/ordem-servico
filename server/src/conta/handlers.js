@@ -10,6 +10,14 @@ module.exports.authenticate = function (request, reply) {
     })
 }
 
+module.exports.validate = function (request, reply) {
+    return ctrl.validate(request.params.token).then((model) => {
+        return reply(model)
+    }).catch((err) => {
+        return errHandler.resolve(request, reply, err)
+    })
+}
+
 module.exports.recoverAccount = function (request, reply) {
     return ctrl.recoverAccount(request.payload.email).then((model) => {
         return reply(model)
@@ -28,14 +36,6 @@ module.exports.confirmRecover = function (request, reply) {
 
 module.exports.changePassword = function (request, reply) {
     return ctrl.changePassword(request.payload.senha_atual, request.payload.nova_senha).then((model) => {
-        return reply(model)
-    }).catch((err) => {
-        return errHandler.resolve(request, reply, err)
-    })
-}
-
-module.exports.blockAccess = function (request, reply) {
-    return ctrl.blockAccess(request.params.usuarioId).then((model) => {
         return reply(model)
     }).catch((err) => {
         return errHandler.resolve(request, reply, err)

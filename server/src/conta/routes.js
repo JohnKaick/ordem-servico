@@ -10,6 +10,14 @@ module.exports = [
         }
     },
     {
+        path: '/ordem-servico/conta/validate/{token}',
+        method: 'POST',
+        handler: handlers.validate,
+        config: {
+            auth: false
+        }
+    },
+    {
         path: '/ordem-servico/conta/recover-account',
         method: 'POST',
         handler: handlers.recoverAccount,
@@ -29,14 +37,6 @@ module.exports = [
         path: '/ordem-servico/conta/change-password',
         method: 'POST',
         handler: handlers.changePassword,
-        config: {
-            auth: false
-        }
-    },
-    {
-        path: '/ordem-servico/conta/block-access/{usuario_id?}',
-        method: 'POST',
-        handler: handlers.blockAccess,
         config: {
             auth: false
         }

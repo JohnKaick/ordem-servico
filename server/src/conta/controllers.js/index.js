@@ -1,5 +1,5 @@
 module.exports.authenticate = require('./authenticate')
+module.exports.validate = require('./validate')
 module.exports.recoverAccount = require('./recover-account')
 module.exports.confirmRecover = require('./confirm-recover')
 module.exports.changePassword = require('./change-password')
-module.exports.blockAccess = require('./block-access')

@@ -1,6 +1,15 @@
-const Hapi = require('hapi')
+const Path = require('path');
+const Hapi = require('hapi');
 
-const server = new Hapi.Server()
+const server = new Hapi.Server({
+    connections: {
+        routes: {
+            files: {
+                relativeTo: Path.resolve('client', process.env.NODE_ENV || 'source')
+            }
+        }
+    }
+});
 
 server.connection({ port: process.env.PORT || 9090 })
 

@@ -5,7 +5,7 @@ module.exports = function (server) {
         path: '/{param*}',
         handler: {
             directory: {
-                path: 'client/source/',
+                path: '.',
                 redirectToSlash: true,
                 index: true
             }
