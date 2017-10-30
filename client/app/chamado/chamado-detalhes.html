@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-6">
                             <strong>Data de término</strong>
-                            <p ng-if="vm.chamado.termino != null">{{:: chamado.termino | date : "dd/MM/yyyy"}}</p>
+                            <p ng-if="vm.chamado.termino != null">{{:: vm.chamado.termino | date : "dd/MM/yyyy"}}</p>
                             <p ng-if="vm.chamado.termino == null"></p>
                         </div>
                     </div>

@@ -5,9 +5,9 @@
         .module('app')
         .controller('usuarioCadastroCtrl', usuarioCadastroCtrl);
 
-    usuarioCadastroCtrl.$inject = ['$uibModalInstance', 'usuario', 'usuarioAPI'];
+    usuarioCadastroCtrl.$inject = ['$uibModalInstance', 'usuarioAPI', 'usuario'];
 
-    function usuarioCadastroCtrl($uibModalInstance, usuario, usuarioAPI) {
+    function usuarioCadastroCtrl($uibModalInstance, usuarioAPI, usuario) {
 
         var vm = this;
         vm.usuario = usuario || {};

@@ -20,7 +20,7 @@
 
     function uiDate() {
         return {
-            templateUrl: '/app/features/config/date.html',
+            templateUrl: '/app/config/date.html',
             controller: dateCtrl,
             scope: {
                 ngModel: '=',

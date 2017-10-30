@@ -10,6 +10,7 @@
     function feedbackCtrl($routeParams, feedbackAPI) {
 
         var vm = this;
+        vm.feedback = {};
         vm.message = '';
         vm.salvar = salvar;
 
@@ -17,7 +18,7 @@
             feedbackAPI.create($routeParams.chamadoSid, feedback).then(function () {
                 vm.message = 'Obrigado pelo feedback!';
             }).catch(function (data) {
-                vm.message = 'Error: ' + data;
+                console.log('Error:' + data);
             });
         };
     };

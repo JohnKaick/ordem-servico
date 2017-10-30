@@ -11,7 +11,7 @@
 
         var vm = this;
         vm.lista = [];
-        vm.usuario = usuario || {};
+        vm.usuario = {};
         vm.load = load;
         vm.cadastrar = cadastrar;
         vm.editar = editar;

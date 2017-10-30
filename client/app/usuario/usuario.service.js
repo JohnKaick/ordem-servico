@@ -3,7 +3,9 @@
 
     angular
         .module('app')
-        .service('usuarioAPI', usuarioAPI)
+        .service('usuarioAPI', usuarioAPI);
+
+    usuarioAPI.$inject = ['$http'];
 
     function usuarioAPI($http) {
 
