@@ -2,22 +2,21 @@ const Promise = require('bluebird')
 const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 
-module.exports = function (connectionKey, conta, role) {
+module.exports = function (conta, role) {
     return new Promise((resolve, reject) => {
 
         // Informações criptografadas no token
         let tokenData = {
-            id: conta.relations.usuario.id,
-            usuario_id: conta.relations.usuario.id,
-            exibicao: conta.relations.usuario.attributes.exibicao,
-            login: conta.attributes.login,
-            connectionKey: connectionKey,
+            id: conta.usuario.id,
+            usuario_id: conta.usuario_id,
+            exibicao: conta.usuario.exibicao,
+            login: conta.login,
             scope: role,
         }
 
         // Configuração do token
         let config = {
-            expiresIn: '7 days'
+            expiresIn: '1 days'
         }
 
         // Callback
@@ -28,9 +27,9 @@ module.exports = function (connectionKey, conta, role) {
                 resolve({
                     token: token,
                     usuario: {
-                        id: conta.relations.usuario.id,
-                        exibicao: conta.relations.usuario.attributes.exibicao,
-                        email: conta.relations.usuario.attributes.email
+                        id: conta.usuario.id,
+                        exibicao: conta.usuario.exibicao,
+                        email: conta.usuario.email
                     },
                     permissao: role
                 })

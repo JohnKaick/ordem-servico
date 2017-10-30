@@ -15,6 +15,7 @@ exports.up = function (knex, Promise) {
             table.string('usuario_id').references('id').inTable('usuario')
             table.string('login', 255).notNullable()
             table.string('password_hash', 400).notNullable()
+            table.string('token_senha', 50)
             table.boolean('bloqueado')
         }),
         knex.schema.createTableIfNotExists('role', function (table) {
@@ -34,7 +35,7 @@ exports.up = function (knex, Promise) {
             table.string('descricao', 1020).notNullable()
             table.enu('area_responsavel', ['tecnico', 'admin'])
             table.dateTime('prazo')
-            table.date('termino')
+            table.dateTime('termino')
             table.string('created_by', 14)
             table.string('updated_by', 14)
             table.dateTime('created_at')

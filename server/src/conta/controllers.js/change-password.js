@@ -16,8 +16,6 @@ module.exports = function (request, reply) {
             return db.Conta.forge({ 'id': _conta.id })
                 .save({ 'password_hash': passwordHash.generate(novaSenha) })
         }).then(() => {
-            reply({ success: true })
-        }).catch((err) => {
-            eh.resolve(request, reply, err)
+            Promise.resolve({ success: true })
         })
 }

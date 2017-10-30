@@ -16,22 +16,20 @@ const verificado = function (conta, senha) {
 module.exports = function (request, reply) {
     let _conta = null
     let _role = null
+    let senhaNova = request.payload.nova_senha
 
     db.Conta.where('token_senha', request.params.token)
-        .fetch({ withRelated: ['usuario'] }).then((c) => {
+        .fetch({ withRelated: ['usuario'] })
+        .then((c) => {
             if (!c) throw new KnownError('unauthorized', 'token_invalid')
-            _conta = c
-            return verificado(_conta, request.payload.nova_senha)
+            _conta = c.toJSON()
+            return verificado(_conta, senhaNova)
         }).then(() => {
-            return getRoles(_conta.get('usuario_id'))
-        }).then((roles) => {
-            _role = roles
-            return sessionManager.create(request, _conta, _role)
-        }).then((connectionKey) => {
-            return generateToken(connectionKey, _conta, _role)
+            return getRoles(_conta.usuario_id)
+        }).then((r) => {
+            _role = r.toJSON()
+            return generateToken(_conta, _role)
         }).then((token) => {
-            reply(token)
-        }).catch((err) => {
-            eh.resolve(request, reply, err)
+            Promise.resolve(token)
         })
 }
